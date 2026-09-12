@@ -25,6 +25,36 @@ npm run dev
 
 Open `http://localhost:3000`.
 
+## Updating the site
+
+### Manual update
+
+Use a clean working tree and fast-forward-only Git updates so local work is never silently overwritten:
+
+```bash
+git status --short
+git fetch --tags --prune
+git pull --ff-only origin main
+npm install
+npm run lint
+npm run build
+```
+
+If the update introduces a problem, restore the last known-good commit and rebuild:
+
+```bash
+git log -n 5 --oneline
+git checkout <known-good-commit>
+npm install
+npm run build
+```
+
+Do not force-push `main` as part of routine site maintenance.
+
+### Automatic deployment
+
+Deployment automation is intentionally separate from this repository's validation workflow. The repository currently validates changes with GitHub Actions but does not define a production deployment target here. Configure or change automatic deployment only after the actual hosting provider and deployment source are confirmed.
+
 ## Principles
 
 1. Build useful things.
