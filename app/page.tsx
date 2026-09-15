@@ -1,7 +1,7 @@
 const projects = [
-  ["B.I.N.E.S.H. OS", "A modular operating ecosystem for automation, connected devices and intelligent systems."],
-  ["Universal Scanner", "A flexible scanning platform designed for practical, everyday workflows."],
-  ["Smart Parking", "Parking intelligence with occupancy awareness and predicted availability."],
+  ["B.I.N.E.S.H. OS", "A modular operating ecosystem for automation, connected devices and intelligent systems.", "https://github.com/binesheb/binesh-os"],
+  ["Universal Scanner", "A flexible scanning platform designed for practical, everyday workflows.", "https://github.com/binesheb/universal-scanner"],
+  ["Smart Parking", "Parking intelligence with occupancy awareness and predicted availability.", "https://github.com/binesheb/parking-management"],
 ];
 
 export default function Home() {
@@ -32,12 +32,12 @@ export default function Home() {
           <h2>Things being built.</h2>
         </div>
         <div className="project-grid">
-          {projects.map(([name, description], index) => (
+          {projects.map(([name, description, url], index) => (
             <article className="project" key={name}>
               <span>0{index + 1}</span>
               <h3>{name}</h3>
               <p>{description}</p>
-              <a href="https://github.com/binesheb" target="_blank" rel="noreferrer">View on GitHub ↗</a>
+              <a href={url} target="_blank" rel="noreferrer">View project ↗</a>
             </article>
           ))}
         </div>
